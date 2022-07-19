@@ -5,6 +5,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
+import { SharetweetComponent } from './sharetweet/sharetweet.component';
 import { TweetComponent } from './tweet/tweet.component';
 
 
@@ -15,7 +16,7 @@ const routes: Routes = [
   },
   {
     path: '',
-    component: HomeComponent
+    component: LoginComponent
   },
   {
     path: 'login',
@@ -36,6 +37,10 @@ const routes: Routes = [
   {
     path: 'account',
     component: AccountComponent
+  },
+  {
+    path: 'sharetweet',
+    component: SharetweetComponent
   },
 ];
 

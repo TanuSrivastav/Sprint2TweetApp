@@ -5,9 +5,27 @@
     <div class="row">
         <div class="column" style="border: 2px solid black">
             <table>
+                <tr>
+                    <td>Your account name</td>
+                    <td>
+                        <input [(ngModel)]="user.authorName" type="text">
+                    </td>
+                </tr>
+                <tr>
+                    <td>Your Slug</td>
+                    <td>
+                        <input [(ngModel)]="user.authorSlug" type="text">
+                    </td>
+                </tr>
+                <tr>
+                    <td>Tweet Time</td>
+                    <td>
+                        <input [(ngModel)]="user.tweetTime" type="text">
+                    </td>
+                </tr>
 
                 <tr>
-                    <td>Tweet Description</td>
+                    <td>Compose Tweet</td>
                     <td>
                         <input [(ngModel)]="user.tweetDescription" type="text">
                     </td>
@@ -22,9 +40,8 @@
 
                 <input style="background-color: green; margin: 5px;" type="submit" (click)="AddTweet()"
                     value="Post Tweet" />
-                <input style="background-color: blueviolet;" type="button" (click)="Show()" value="Show All Tweets" />
-                <input style="background-color: royalblue; margin-left: 5px;" type="button" value="Back"
-                    routerlink="/home" />
+                <input style="background-color: blueviolet;" type="button" (click)="getData()" value="Show All Tweets" />
+                <input style="background-color: royalblue; margin-left: 5px;" type="button" value="Back" routerlink="/home" />
             </table>
         </div>
         <div class="column">
@@ -39,19 +56,22 @@
                     <td style="padding: 10px;"> TweetTime</td>
                     <td style="padding: 10px;"> TweetDescription</td>
                     <td style="padding: 10px;"> TweetImage</td>
+                    <td style="padding: 10px;" colspan="2">Action</td>
 
                 </tr>
                 <tr *ngFor="let item of users" style="background-color: lightgrey;">
 
                     <td>{{item.authorName}}</td>
                     <td>{{item.authorLogo}}</td>
-                    <!--<td>{{item.catID}}</td>-->
                     <td>{{item.authorSlug}}</td>
                     <td>{{item.tweetTime}}</td>
                     <td>{{item.tweetDescription}}</td>
                     <td>{{item.tweetImage}}</td>
 
-
+                    <td>
+                        <input type="button" class="btn btn-lg btn-primary" style="height:40px;" value="Edit" (click)="EditTweet(item)" /></td>
+                       <td><input type="button" class="btn btn-lg btn-primary" style="height:40px;" value="Delete" (click)="DeleteTweet(item)" />
+                    </td>
                 </tr>
             </table>
         </div>
