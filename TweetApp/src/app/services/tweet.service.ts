@@ -13,4 +13,11 @@ export class TweetService {
   getProducts() {
     return this.http.get<any>(this._tweetUrl);
   }
+  
+  /*updateTweet(id:any, data:any){
+    return this.http.put('$(this.url)/$(id)');
+  }*/
+  deleteTweet(id:any){
+    return this.http.delete('$(this.url)/$(id)');
+  }
 }

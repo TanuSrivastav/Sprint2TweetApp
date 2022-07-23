@@ -60,5 +60,15 @@ export class TweetComponent implements OnInit {
     var index=this.users.indexOf(input);
     this.users.splice(index,1);
   }
-
+  uploadFile=(files:any)=>{
+    console.log("Hi");
+    
+    if(files.length==0){
+      return;
+    }
+    let filetoUpload=<File>files[0];
+    const formData=new FormData();
+    formData.append('file',filetoUpload,filetoUpload.name)
+    this.httpc.post("https://localhost:44341/api/upload",formData).subscribe(res=>console.log(res),res=>console.log(res));
+  }
 }
